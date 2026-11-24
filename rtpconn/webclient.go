@@ -1154,7 +1154,7 @@ func handleAction(c *webClient, a any) error {
 		}
 
 	case pushClientAction:
-		if a.group != c.group.Name() {
+		if c.group == nil || a.group != c.group.Name() {
 			log.Printf("got client for wrong group")
 			return nil
 		}
